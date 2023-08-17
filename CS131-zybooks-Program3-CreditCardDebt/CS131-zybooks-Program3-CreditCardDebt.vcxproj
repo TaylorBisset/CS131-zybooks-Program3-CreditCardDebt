@@ -129,6 +129,9 @@
   <ItemGroup>
     <ClCompile Include="CS131-zybooks-Program3-CreditCardDebt.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Downloads\codingrooms-project\CustomerData.csv" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
