@@ -52,14 +52,14 @@ int main()
 
     cin >> debtLimit >> firstLetter >> stateAbb;
 
-    int highestDebt = 0;
+    double highestDebt = 0;
     string highestDebtName;
     int namesWithFirstLetter = 0;
     int numOverDebtLimit = 0;
     int numDebtFree = 0;
 
     int state_Customers = 0;
-    int state_highestDebt = 0;
+    double state_highestDebt = 0;
     string state_highestDebtName;
     int state_namesWithFirstLetter = 0;
     int state_numOverDebtLimit = 0;
@@ -67,21 +67,36 @@ int main()
     
     for (int i = 0; i < debt.size(); i++)
     {
+        if (states.at(i) == stateAbb)
+        {
+            state_Customers++;
+            if (debt.at(i) > state_highestDebt)
+            {
+                state_highestDebt = debt.at(i);
+                state_highestDebtName = names.at(i);
+            }
+            if (names.at(i)[0] == firstLetter)
+            {
+                state_namesWithFirstLetter++;
+            }
+            if (debt.at(i) > debtLimit)
+            {
+                state_numOverDebtLimit++;
+            }
+            else if (debt.at(i) == 0)
+            {
+                state_numDebtFree++;
+            }
+        }
         if (debt.at(i) > highestDebt)
         {
             highestDebt = debt.at(i);
             highestDebtName = names.at(i);
         }
-    }
-    for (int i = 0; i < debt.size(); i++)
-    {
         if (names.at(i)[0] == firstLetter)
         {
             namesWithFirstLetter++;
         }
-    }
-    for (int i = 0; i < debt.size(); i++)
-    {
         if (debt.at(i) > debtLimit)
         {
             numOverDebtLimit++;
@@ -91,6 +106,7 @@ int main()
             numDebtFree++;
         }
     }
+    
     cout << "U.S. Report\n";
     cout << "Customers: " << size << endl;
     cout << "Highest debt: " << highestDebtName << endl;
@@ -99,14 +115,6 @@ int main()
     cout << "Customers debt free: " << numDebtFree << endl;
     cout << endl;
 
-    // State report
-    for (int i = 0; i < states.size(); i++)
-    {
-        if (states.at(i) == stateAbb)
-        {
-            
-        }
-    }
     cout << stateAbb << " Report\n";
     cout << "Customers: " << state_Customers << endl;
     cout << "Highest debt: " << state_highestDebtName << endl;
