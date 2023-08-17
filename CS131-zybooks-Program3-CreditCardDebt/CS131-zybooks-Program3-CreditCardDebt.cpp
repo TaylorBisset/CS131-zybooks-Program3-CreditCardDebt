@@ -46,10 +46,26 @@ int main()
 
     /* Type your code here */
     // Input debt limit, search phrase, and state
-    int debtLimit;
-    char customerName;
+    int    debtLimit;
+    char   customerName;
     string stateAbb;
     cin >> debtLimit >> customerName >> stateAbb;
+
+    int    highestDebt = 0;
+    string highestDebtName;
+
+    for (int i = 0; i < debt.size(); i++)
+    {
+        if (debt.at(i) > highestDebt)
+        {
+            highestDebt = debt.at(i);
+            highestDebtName = names.at(i);
+        }
+    }
+
+    cout << "U.S. Report\n";
+    cout << "Customers: " << size << endl;
+    cout << "Highest debt: " << highestDebtName << endl;
 
     return 0;
 }
