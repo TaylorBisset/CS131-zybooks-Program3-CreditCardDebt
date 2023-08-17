@@ -46,14 +46,25 @@ int main()
 
     /* Type your code here */
     // Input debt limit, search phrase, and state
-    int    debtLimit;
-    char   firstLetter;
+    int debtLimit;
+    char firstLetter;
     string stateAbb;
+
     cin >> debtLimit >> firstLetter >> stateAbb;
 
-    int    highestDebt = 0;
+    int highestDebt = 0;
     string highestDebtName;
+    int namesWithFirstLetter = 0;
+    int numOverDebtLimit = 0;
+    int numDebtFree = 0;
 
+    int state_Customers = 0;
+    int state_highestDebt = 0;
+    string state_highestDebtName;
+    int state_namesWithFirstLetter = 0;
+    int state_numOverDebtLimit = 0;
+    int state_numDebtFree = 0;
+    
     for (int i = 0; i < debt.size(); i++)
     {
         if (debt.at(i) > highestDebt)
@@ -62,12 +73,6 @@ int main()
             highestDebtName = names.at(i);
         }
     }
-
-    cout << "U.S. Report\n";
-    cout << "Customers: " << size << endl;
-    cout << "Highest debt: " << highestDebtName << endl;
-
-    int namesWithFirstLetter = 0;
     for (int i = 0; i < debt.size(); i++)
     {
         if (names.at(i)[0] == firstLetter)
@@ -75,10 +80,6 @@ int main()
             namesWithFirstLetter++;
         }
     }
-    cout << "Customer names that start with '" << firstLetter << "': " << namesWithFirstLetter << endl;
-
-    int numOverDebtLimit = 0;
-    int numDebtFree = 0;
     for (int i = 0; i < debt.size(); i++)
     {
         if (debt.at(i) > debtLimit)
@@ -90,8 +91,28 @@ int main()
             numDebtFree++;
         }
     }
+    cout << "U.S. Report\n";
+    cout << "Customers: " << size << endl;
+    cout << "Highest debt: " << highestDebtName << endl;
+    cout << "Customer names that start with '" << firstLetter << "': " << namesWithFirstLetter << endl;
     cout << "Customers with debt over $" << debtLimit << ": " << numOverDebtLimit << endl;
     cout << "Customers debt free: " << numDebtFree << endl;
+    cout << endl;
+
+    // State report
+    for (int i = 0; i < states.size(); i++)
+    {
+        if (states.at(i) == stateAbb)
+        {
+            
+        }
+    }
+    cout << stateAbb << " Report\n";
+    cout << "Customers: " << state_Customers << endl;
+    cout << "Highest debt: " << state_highestDebtName << endl;
+    cout << "Customer names that start with '" << firstLetter << "': " << state_namesWithFirstLetter << endl;
+    cout << "Customers with debt over $" << debtLimit << ": " << state_numOverDebtLimit << endl;
+    cout << "Customers debt free: " << state_numDebtFree << endl;
 
     return 0;
 }
