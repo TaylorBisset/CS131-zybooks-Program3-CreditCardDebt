@@ -47,9 +47,9 @@ int main()
     /* Type your code here */
     // Input debt limit, search phrase, and state
     int    debtLimit;
-    char   customerName;
+    char   firstLetter;
     string stateAbb;
-    cin >> debtLimit >> customerName >> stateAbb;
+    cin >> debtLimit >> firstLetter >> stateAbb;
 
     int    highestDebt = 0;
     string highestDebtName;
@@ -66,6 +66,16 @@ int main()
     cout << "U.S. Report\n";
     cout << "Customers: " << size << endl;
     cout << "Highest debt: " << highestDebtName << endl;
+
+    int namesWithFirstLetter = 0;
+    for (int i = 0; i < debt.size(); i++)
+    {
+        if (names.at(i)[0] == firstLetter)
+        {
+            namesWithFirstLetter++;
+        }
+    }
+    cout << "Customer names that start with '" << firstLetter << "': " << namesWithFirstLetter;
 
     return 0;
 }
