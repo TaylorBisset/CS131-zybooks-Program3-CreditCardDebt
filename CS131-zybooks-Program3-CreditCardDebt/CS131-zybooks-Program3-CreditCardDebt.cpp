@@ -46,6 +46,10 @@ int main()
 
     /* Type your code here */
     // Input debt limit, search phrase, and state
+    int debtLimit;
+    char customerName;
+    string stateAbb;
+    cin >> debtLimit >> customerName >> stateAbb;
 
     return 0;
 }
