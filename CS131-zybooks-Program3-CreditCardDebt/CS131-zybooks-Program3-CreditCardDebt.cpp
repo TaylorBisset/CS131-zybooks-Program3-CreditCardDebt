@@ -75,7 +75,23 @@ int main()
             namesWithFirstLetter++;
         }
     }
-    cout << "Customer names that start with '" << firstLetter << "': " << namesWithFirstLetter;
+    cout << "Customer names that start with '" << firstLetter << "': " << namesWithFirstLetter << endl;
+
+    int numOverDebtLimit = 0;
+    int numDebtFree = 0;
+    for (int i = 0; i < debt.size(); i++)
+    {
+        if (debt.at(i) > debtLimit)
+        {
+            numOverDebtLimit++;
+        }
+        else if (debt.at(i) == 0)
+        {
+            numDebtFree++;
+        }
+    }
+    cout << "Customers with debt over $" << debtLimit << ": " << numOverDebtLimit << endl;
+    cout << "Customers debt free: " << numDebtFree << endl;
 
     return 0;
 }
